@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boun-tom Tic Tac Toe</title>
+ 
+  <link rel="stylesheet" href="/Portfolio/VONE-Tic-Toc/css/style.css" />
+</head>
+<body>
+  <h1>Boun-tom</h1>
+
+  <div class="board">
+    <div class="cell" onclick="handleClick(0)"></div>
+    <div class="cell" onclick="handleClick(1)"></div>
+    <div class="cell" onclick="handleClick(2)"></div>
+    <div class="cell" onclick="handleClick(3)"></div>
+    <div class="cell" onclick="handleClick(4)"></div>
+    <div class="cell" onclick="handleClick(5)"></div>
+    <div class="cell" onclick="handleClick(6)"></div>
+    <div class="cell" onclick="handleClick(7)"></div>
+    <div class="cell" onclick="handleClick(8)"></div>
+  </div>
+
+  <p id="status"></p>
+  <button id="controlButton" onclick="resetGame()">Let’s Play!</button>
+
+  <audio id="winMusic" src="mp3/loso.mp3"></audio>
+  <canvas id="fireworksCanvas"></canvas>
+  <div id="flyingLetter"></div>
+
+  
+  <script src="/Portfolio/VONE-Tic-Toc/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+
+body {
+  font-family: Arial, sans-serif;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  color: #fff;
+  overflow-x: hidden;
+}
+h1 {
+  color: darkred;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-gap: 8px;
+  justify-content: center;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
+}
+.cell {
+  width: 120px;
+  height: 120px;
+  background: darkred;
+  border: 2px solid #0288d1;
+  border-radius: 12px;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+}
+#status {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 20px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 1;
+}
+button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background: #0288d1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+button:hover {
+  background: #0277bd;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes popInOutLetter {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0; transform: scale(0.7); }
+}
+@keyframes dance {
+  0% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-10deg); }
+  50% { transform: translateX(5px) rotate(10deg); }
+  75% { transform: translateX(-5px) rotate(-10deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+.cell.winner {
+  animation: spin 1s linear infinite;
+  background: darkred;
+}
+.cell.winner .letter {
+  display: inline-block;
+  animation: popInOutLetter 1s ease-in-out infinite, dance 0.5s infinite;
+}
+
+#flyingLetter {
+  position: fixed;
+  top: 50%;
+  left: -200px;
+  font-size: 200px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(1);
+  animation: none;
+}
+@keyframes flyAcross {
+  0%   { left: -200px; opacity: 1; transform: scale(1); }
+  50%  { opacity: 0.5; transform: scale(1.5); }
+  100% { left: 120vw; opacity: 1; transform: scale(1); }
+}
+
+#fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-2px, 0) rotate(-5deg); }
+  50% { transform: translate(2px, 0) rotate(5deg); }
+  75% { transform: translate(-2px, 0) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+.emoji-shake {
+  display:inline-block;
+  margin-left:10px;
+  animation: shake 0.5s infinite;
+}
